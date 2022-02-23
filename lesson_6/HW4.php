@@ -11,11 +11,11 @@ $array = [
     ],
     [
         //Места в кинотеатре
-        "1"=> [1, 2, 3, 4, 5],
-        "2"=> [6, 7, 8, 9, 10],
-        "3"=> [11, 12, 13, 14, 15],
-        "4"=> [16, 17, 18, 19, 20],
-        "5"=> [21, 22, 23, 24, 25],
+        "1" => [1, 2, 3, 4, 5],
+        "2" => [6, 7, 8, 9, 10],
+        "3" => [11, 12, 13, 14, 15],
+        "4" => [16, 17, 18, 19, 20],
+        "5" => [21, 22, 23, 24, 25],
     ],
     [
         //Список оценок
@@ -24,35 +24,27 @@ $array = [
         "Algebra" => [4, 4, 4, 4, 5, 3],
         "Physics" => [3, 3, 3, 4, 4, 3],
     ]];
-$search = "25";
+$search = "4";
 
-function search ($array, $search){
+function search($array, $search) {
+    $helper = [];
 
     foreach ($array as $key => $value) {
         foreach ($value as $ke => $valu) {
-
             if (is_array($valu)) {
-
                 foreach ($valu as $k => $val) {
-
                     if ($val == $search) {
-
-                        echo "[$key][$ke][$k] <= key \n";
-
+                        $helper[] = "[$key][$ke][$k] <= key \n";
                     }
                 }
-            }
-            else {
-
-                if($valu == $search){
-
+            } else {
+                if ($valu == $search) {
                     echo "[$key][$ke] <= key \n";
                 }
             }
         }
     }
-    return false;
-
+    echo $helper[0];
 }
 
-search ($array, $search);
+search($array, $search);
